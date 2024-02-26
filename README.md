@@ -1,27 +1,43 @@
-# MetaChallengeAngular
+# Apresentação do Projeto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+Bem-vindo ao Meta Challenge, projeto desenvolvido com Angular! Este é um sistema de gerenciamento de usuários e produtos, projetado com foco na simplicidade e eficiência.
 
-## Development server
+## Sobre o Projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Este projeto foi criado com o objetivo de fornecer uma plataforma robusta e segura para o cadastro de usuários e produtos. Ele é ideal para pequenas e médias empresas que desejam gerenciar seus produtos de maneira eficiente.
 
-## Code scaffolding
+## Recursos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+O sistema é dividido em dois níveis de permissão: `Admin` e `User`.
 
-## Build
+- **Admin**: O usuário com permissão de administrador tem acesso a todos os recursos do site. Isso inclui a capacidade de visualizar, criar, editar e excluir qualquer usuário ou produto no sistema.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **User**: O usuário comum tem acesso limitado, podendo apenas cadastrar e editar os produtos que ele mesmo criou. Isso garante que cada usuário possa gerenciar seus próprios produtos de maneira eficiente, sem interferir nos produtos de outros usuários.
 
-## Running unit tests
+# Angular
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 17.2.0.
 
-## Running end-to-end tests
+## Servidor de Desenvolvimento
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Execute `ng serve` para um servidor de desenvolvimento. Navegue para `http://localhost:4200/`. O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
 
-## Further help
+## Criação de Código
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Execute `ng generate component nome-do-componente` para gerar um novo componente. Você também pode usar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Deploy
+
+Execute `ng build` para construir o projeto. Os artefatos de construção serão armazenados no diretório `dist/`.
+
+## Executando testes unitários
+
+Execute `ng test` para executar os testes unitários via [Karma](https://karma-runner.github.io).
+
+## Executando testes de ponta a ponta
+
+Execute `ng e2e` para executar os testes de ponta a ponta através de uma plataforma de sua escolha. Para usar este comando, você precisa primeiro adicionar um pacote que implementa capacidades de teste de ponta a ponta.
+
+## Ajuda Adicional
+
+Para obter mais ajuda sobre o Angular CLI, use `ng help` ou confira a página [Angular CLI Overview and Command Reference](https://angular.io/cli).
