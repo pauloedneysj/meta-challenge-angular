@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../../services/login.service';
 import { IUserResponse } from '../../../../../types/types';
 import { UsersService } from '../../../../services/users.service';
@@ -11,23 +11,22 @@ import { UsersService } from '../../../../services/users.service';
 })
 export class NavbarComponent {
   user = {} as IUserResponse;
-  roles = { ADMIN: 'Administrador', USER: 'Usuário' };
+  isOpen = false;
 
   constructor(
     private loginService: LoginService,
     private userService: UsersService
   ) {
-    this.getUser();
+    this.getMe();
+  }
+
+  getMe() {
+    this.userService.getMe().subscribe((response) => {
+      this.user = response;
+    });
   }
 
   logout() {
     this.loginService.logout();
-  }
-
-  getUser() {
-    this.userService.getMe().subscribe((response) => {
-      this.user = response;
-      localStorage.setItem('user', JSON.stringify(this.user));
-    });
   }
 }

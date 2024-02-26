@@ -20,12 +20,10 @@ export const routes: Routes = [
       {
         path: '',
         component: ProductsListComponent,
-        canActivate: [authenticatedUserGuard],
       },
       {
         path: 'users',
         component: UsersListComponent,
-        canActivate: [authenticatedUserGuard],
       },
     ],
   },

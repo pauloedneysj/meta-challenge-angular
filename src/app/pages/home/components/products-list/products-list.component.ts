@@ -5,6 +5,7 @@ import { ProductsService } from '../../../../services/products.service';
 import { formatDate } from '../../../../../utils/functions/format-date';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsersService } from '../../../../services/users.service';
 
 @Component({
   selector: 'app-products-list',
@@ -18,14 +19,20 @@ export class ProductsListComponent {
   productById: IProductResponse = {} as IProductResponse;
   productId: string = '';
 
-  user = JSON.parse(localStorage.getItem('user') || '{}') as IUserResponse;
+  user = {} as IUserResponse;
 
   isOpen = false;
   isEdit = false;
   formatDate = formatDate;
 
-  constructor(private productService: ProductsService) {
-    this.getProducts();
+  constructor(
+    private productService: ProductsService,
+    private usersService: UsersService
+  ) {
+    this.usersService.getMe().subscribe((response) => {
+      this.user = response;
+      this.getProducts();
+    });
   }
 
   getProducts() {
@@ -33,13 +40,11 @@ export class ProductsListComponent {
       this.productService.getProducts().subscribe((response) => {
         this.products = response.reverse();
       });
-    } else {
-      console.log(this.user.id);
-
+    } else if (this.user.role === 'USER') {
       this.productService
         .getProductsByUser(this.user.id)
         .subscribe((response) => {
-          this.products = response;
+          this.products = response.reverse();
         });
     }
   }
